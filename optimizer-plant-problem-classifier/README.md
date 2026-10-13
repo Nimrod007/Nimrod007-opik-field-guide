@@ -34,7 +34,7 @@ Open the project `optimizer-plant-problem-classifier` (local Opik at http://loca
 2. `uv sync`
 3. `uv run main.py` takes about a minute and costs a few cents. Scores vary between runs because gpt-4o-mini and the optimizer's search are not deterministic.
 4. Optional: `uv run baseline.py` scores the seed prompt alone and traces each call as a `classify_problem` trace, handy for seeing a single failing answer.
-5. Open the project's **Optimization runs** tab.
+5. Open the `run link` it prints (project-pinned), or the project's **Optimization runs** tab.
 
 ## Poke around
 
@@ -49,6 +49,13 @@ Open the project `optimizer-plant-problem-classifier` (local Opik at http://loca
 
 ```python
 ScoreResult(name="label_accuracy", value=score, reason=f"expected '{label}', model said '{answer}'")
+```
+
+**The run link opens an empty page.** `result.get_run_link()` goes through `/api/v1/session/redirect/...`, which answers `303` to `/default/optimizations/<dataset_id>/compare`, a page outside any project. What it shows depends on the project the UI last had open, so the run can look empty. Build the project-pinned URL from the run's own project id (this is what `main.py` prints):
+
+```python
+run = client.rest_client.optimizations.get_optimization_by_id(result.optimization_id)
+f"{ui_base}/{workspace}/projects/{run.project_id}/optimizations/{result.optimization_id}"
 ```
 
 ## How it's put together

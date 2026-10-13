@@ -84,7 +84,12 @@ def main() -> None:
     print(f"best accuracy    : {best:.3f}  ({best - initial:+.3f})")
     print(f"trials completed : {result.details.get('trials_completed')}  (budget {MAX_TRIALS})")
     print(f"llm calls        : {result.llm_calls}")
-    print(f"run link         : {result.get_run_link()}")
+    # get_run_link() redirects through the UI's "active project", so from another
+    # project the run looks empty. Build the project-pinned URL from the run's own project id.
+    run = client.rest_client.optimizations.get_optimization_by_id(result.optimization_id)
+    ui_base = client.config.url_override.rstrip("/").removesuffix("/api")
+    print(f"run link         : {ui_base}/{client.config.workspace}/projects/{run.project_id}"
+          f"/optimizations/{result.optimization_id}")
     print("=" * 64)
 
     # Only a real gain earns a new library version.
