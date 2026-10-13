@@ -9,6 +9,7 @@ load_dotenv(Path(__file__).parent / ".env")
 from smolagents import CodeAgent, OpenAIServerModel  # noqa: E402
 
 from brewery import BRIEFING, QUESTIONS  # noqa: E402
+from tracing import PROJECT_NAME, flush_tracing, setup_tracing  # noqa: E402
 
 
 def build_agent() -> CodeAgent:
@@ -26,10 +27,13 @@ def ask(agent: CodeAgent, question: str) -> str:
 
 
 def main() -> None:
+    provider = setup_tracing()  # must run before the agent is built so it is instrumented
     agent = build_agent()
     for i, question in enumerate(QUESTIONS, 1):
         print(f"\n=== Question {i}: {question}")
         print(f"Answer {i}: {ask(agent, question)}")
+    flush_tracing(provider)
+    print(f"\nDone. Open the '{PROJECT_NAME}' project in Opik.")
 
 
 if __name__ == "__main__":
