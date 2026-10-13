@@ -1,0 +1,20 @@
+{
+  "household": "The Okafor-Lindqvist kitchen (fictional)",
+  "items": [
+    { "name": "all-purpose flour", "amount": 1000, "unit": "g" },
+    { "name": "granulated sugar", "amount": 600, "unit": "g" },
+    { "name": "brown sugar", "amount": 150, "unit": "g" },
+    { "name": "baking soda", "amount": 40, "unit": "g" },
+    { "name": "milk", "amount": 500, "unit": "ml" },
+    { "name": "white vinegar", "amount": 300, "unit": "ml" },
+    { "name": "lemon juice", "amount": 60, "unit": "ml" },
+    { "name": "olive oil", "amount": 400, "unit": "ml" },
+    { "name": "plain yogurt", "amount": 250, "unit": "g" },
+    { "name": "honey", "amount": 200, "unit": "g" },
+    { "name": "cornstarch", "amount": 120, "unit": "g" },
+    { "name": "cocoa powder", "amount": 80, "unit": "g" },
+    { "name": "unsalted butter", "amount": 0, "unit": "g" },
+    { "name": "eggs", "amount": 0, "unit": "each" },
+    { "name": "buttermilk", "amount": 0, "unit": "ml" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "buttermilk": [
+    { "substitute": "milk + white vinegar", "ratio": "1 cup buttermilk = 1 cup milk + 1 tbsp white vinegar (rest 5 minutes)", "needs": ["milk", "white vinegar"], "notes": "Best for pancakes and quick breads." },
+    { "substitute": "plain yogurt + milk", "ratio": "1 cup buttermilk = 3/4 cup plain yogurt + 1/4 cup milk", "needs": ["plain yogurt", "milk"], "notes": "Slightly thicker batter." }
+  ],
+  "egg": [
+    { "substitute": "plain yogurt", "ratio": "1 egg = 1/4 cup plain yogurt", "needs": ["plain yogurt"], "notes": "Works in muffins and cakes, not meringues." },
+    { "substitute": "cornstarch + water", "ratio": "1 egg = 2 tbsp cornstarch + 3 tbsp water", "needs": ["cornstarch"], "notes": "A binder only; no lift." }
+  ],
+  "unsalted butter": [
+    { "substitute": "olive oil", "ratio": "1 cup butter = 3/4 cup olive oil", "needs": ["olive oil"], "notes": "Fruity flavour; fine in cakes and sauteing." }
+  ],
+  "brown sugar": [
+    { "substitute": "granulated sugar + honey", "ratio": "1 cup brown sugar = 1 cup granulated sugar + 1 tbsp honey", "needs": ["granulated sugar", "honey"], "notes": "Keeps the caramel note." }
+  ],
+  "baking powder": [
+    { "substitute": "baking soda + lemon juice", "ratio": "1 tsp baking powder = 1/4 tsp baking soda + 1/2 tsp lemon juice", "needs": ["baking soda", "lemon juice"], "notes": "Mix in just before baking." }
+  ],
+  "cake flour": [
+    { "substitute": "all-purpose flour + cornstarch", "ratio": "1 cup cake flour = 1 cup minus 2 tbsp all-purpose flour + 2 tbsp cornstarch", "needs": ["all-purpose flour", "cornstarch"], "notes": "Sift twice." }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "volume_ml": { "ml": 1, "l": 1000, "tsp": 4.93, "tbsp": 14.79, "cup": 236.59 },
+  "grams_per_ml": {
+    "water": 1.0,
+    "milk": 1.03,
+    "olive oil": 0.91,
+    "unsalted butter": 0.96,
+    "plain yogurt": 1.04,
+    "honey": 1.42,
+    "granulated sugar": 0.85,
+    "all-purpose flour": 0.53,
+    "cornstarch": 0.54
+  },
+  "grams_per_each": { "egg": 50 }
+}

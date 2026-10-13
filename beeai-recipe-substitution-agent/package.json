@@ -1,0 +1,25 @@
+{
+  "name": "beeai-recipe-substitution-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A BeeAI ReAct agent that finds ingredient substitutions for home cooks.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "demo": "tsx src/demo.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.3.13",
+    "beeai-framework": "0.1.13",
+    "dotenv": "^17.2.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
