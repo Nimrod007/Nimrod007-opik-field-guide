@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
+import { track } from "opik";
+import { PROJECT_NAME, traceMessages } from "./tracing.js";
 
 export const MODEL = "claude-haiku-4-5-20251001";
 
@@ -44,10 +46,10 @@ export function unverifiedQuotes(answer: string, manual: string = MANUAL): strin
   return extractQuotes(answer).filter((q) => !manual.includes(q));
 }
 
-export async function answerQuestion(
-  question: string,
-  messages: Messages = anthropic.messages,
-): Promise<string> {
+// Every call made through this client is logged as an llm span.
+export const tracedMessages = traceMessages(anthropic.messages);
+
+async function answer(question: string, messages: Messages): Promise<string> {
   const response = await messages.create({
     model: MODEL,
     max_tokens: 1024,
@@ -56,3 +58,12 @@ export async function answerQuestion(
   });
   return extractText(response);
 }
+
+// track() makes answer_question the root span of the trace; the llm span from
+// traceMessages nests under it, so one question = one trace. type "general" is
+// explicit because track() without a type labels the span "llm".
+export const answerQuestion = track(
+  { name: "answer_question", projectName: PROJECT_NAME, type: "general" },
+  (question: string, messages: Messages = tracedMessages): Promise<string> =>
+    answer(question, messages),
+) as (question: string, messages?: Messages) => Promise<string>;
