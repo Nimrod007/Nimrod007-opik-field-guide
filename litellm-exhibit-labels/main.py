@@ -20,6 +20,7 @@ import litellm  # noqa: E402
 import opik  # noqa: E402
 from litellm.integrations.opik.opik import OpikLogger  # noqa: E402
 
+import compare  # noqa: E402
 from labels import MODELS, Call, build_prompt, format_table, load_artifacts, summarize, word_count  # noqa: E402
 
 
@@ -67,6 +68,9 @@ def main() -> None:
     print("\n" + format_table(summarize(calls)))
     # Callback sends are batched in the background; flush so nothing is lost at exit.
     opik.flush_tracker()
+    # Second table: the same comparison read back from Opik's stored spans.
+    print("\nFrom Opik, project litellm-exhibit-labels:\n")
+    compare.main(expected=len(calls))
 
 
 if __name__ == "__main__":
