@@ -7,6 +7,10 @@ sections, and both run in Ollama on this machine. No cloud model, no provider ke
 import os
 import pathlib
 
+PROJECT_NAME = "ollama-ham-radio-rag"
+# Opik reads the target project from this variable; set it before opik is imported.
+os.environ.setdefault("OPIK_PROJECT_NAME", PROJECT_NAME)
+
 import dotenv
 
 dotenv.load_dotenv(pathlib.Path(__file__).parents[1] / ".env")
@@ -16,6 +20,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
+from opik.integrations.langchain import OpikTracer
 
 from handbook import TOP_K, format_context, load_sections
 
@@ -60,8 +65,14 @@ def build_chain(retriever):
 
 def main() -> None:
     chain = build_chain(build_retriever())
+    # OpikTracer is a LangChain callback: each chain.invoke becomes one trace
+    # named after the run (ask_the_handbook), with prompt and ChatOllama as child spans.
+    tracer = OpikTracer(project_name=PROJECT_NAME, tags=["ollama", "local-rag"])
     for question in QUESTIONS:
-        print(f"Q: {question}\nA: {chain.invoke(question)}\n")
+        answer = chain.invoke(question, config={"callbacks": [tracer]})
+        print(f"Q: {question}\nA: {answer}\n")
+    # Traces are sent from a background thread; flush so none are lost at exit.
+    tracer.flush()
 
 
 if __name__ == "__main__":
