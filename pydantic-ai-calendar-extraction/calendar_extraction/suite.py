@@ -46,7 +46,12 @@ def run_suite(model: str = "gpt-4o-mini", prompt: str = "strict"):
         name=PROJECT_NAME,
         project_name=PROJECT_NAME,
         global_assertions=GLOBAL_ASSERTIONS,
-        global_execution_policy=EXECUTION_POLICY,
+    )
+    # get_or_create keeps the assertions an existing suite was created with and silently
+    # ignores new ones, so edits to GLOBAL_ASSERTIONS would never reach the judge. This
+    # call pushes them (and the execution policy) as a new suite version, a no-op if unchanged.
+    suite.update_test_settings(
+        global_assertions=GLOBAL_ASSERTIONS, global_execution_policy=EXECUTION_POLICY
     )
     # insert deduplicates identical items, so re-running does not pile up copies.
     suite.insert(suite_items(load_emails()))

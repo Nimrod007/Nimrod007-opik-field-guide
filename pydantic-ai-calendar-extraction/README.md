@@ -46,6 +46,8 @@ Each suite run takes roughly half a minute. The OTLP endpoint and workspace can 
 
 **`TypeError: DatasetItem() got multiple values for keyword argument 'id'` when inserting suite items.** The item's `data` dictionary had a key named `id`, which collides with the dataset item's own id. Name it something else, as `suite.py` does: `{"email_id": e.id, "sent": ..., "text": ...}`.
 
+**You edit `GLOBAL_ASSERTIONS` but the judge keeps applying the old ones.** `client.get_or_create_test_suite(..., global_assertions=...)` returns an existing suite untouched, so new assertions are silently ignored. After the get-or-create call, push them: `suite.update_test_settings(global_assertions=GLOBAL_ASSERTIONS, global_execution_policy=EXECUTION_POLICY)`. It creates a new suite version, and does nothing when nothing changed.
+
 **Items fail for "not stated" nulls, or the judge contradicts itself on the same output.** Our first global assertion read "no value is invented", and the judge failed events for having a null date or an empty attendee list. The first judge run also failed `quick-call` while its own explanation said the values were supported. Say explicitly that null is acceptable ("a null value, or an empty attendees list, is always acceptable"), use a judge model (`model="gpt-4.1-mini"` in `run_tests`) that is not the extractor, and give the suite an execution policy such as `{"runs_per_item": 3, "pass_threshold": 2}`.
 
 **The terminal fills with span trees, or a startup banner, on every run.** `logfire.configure` prints spans to the console by default; pass `console=False`. Set `PYDANTIC_AI_NO_BANNER=1` to silence the Pydantic AI banner.
