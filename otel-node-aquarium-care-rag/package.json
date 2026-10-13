@@ -10,6 +10,7 @@
     "demo": "tsx src/demo.ts",
     "dev": "tsx src/main.ts",
     "test": "vitest run",
+    "check": "tsx src/check.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

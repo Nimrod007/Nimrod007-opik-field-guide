@@ -39,13 +39,17 @@ export class CareRag {
   }
 
   async ingest(docsDir: string): Promise<number> {
-    const chunks = readdirSync(docsDir)
-      .filter((f) => f.endsWith(".md"))
-      .sort()
-      .flatMap((f) => chunkMarkdown(f, readFileSync(join(docsDir, f), "utf8")));
-    const vectors = await this.embed(chunks.map((c) => c.text));
-    this.index = chunks.map((c, i) => ({ ...c, vector: vectors[i]! }));
-    return chunks.length;
+    // Startup indexing gets its own named root span, so it appears as one "ingest_care_guide" trace
+    // (with the embeddings llm span inside) instead of an unnamed embeddings-only trace.
+    return withSpan("ingest_care_guide", {}, async () => {
+      const chunks = readdirSync(docsDir)
+        .filter((f) => f.endsWith(".md"))
+        .sort()
+        .flatMap((f) => chunkMarkdown(f, readFileSync(join(docsDir, f), "utf8")));
+      const vectors = await this.embed(chunks.map((c) => c.text));
+      this.index = chunks.map((c, i) => ({ ...c, vector: vectors[i]! }));
+      return chunks.length;
+    });
   }
 
   async retrieve(question: string): Promise<Hit[]> {
