@@ -8,6 +8,7 @@ dependencies = [
     "langchain-openai>=1.7",
     "langgraph>=1.2",
     "numpy>=2.0",
+    "opik>=2.2.99",
     "python-dotenv>=1.0",
 ]
 

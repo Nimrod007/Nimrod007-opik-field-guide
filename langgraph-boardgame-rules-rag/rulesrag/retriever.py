@@ -13,4 +13,5 @@ def build_store(embeddings: Embeddings, chunks: list[Chunk] | None = None) -> In
 
 def retrieve(store: InMemoryVectorStore, question: str, k: int = 3) -> list[str]:
     """Return the text of the k chunks most similar to the question."""
-    return [doc.page_content for doc in store.similarity_search(question, k=k)]
+    retriever = store.as_retriever(search_kwargs={"k": k})
+    return [doc.page_content for doc in retriever.invoke(question)]
