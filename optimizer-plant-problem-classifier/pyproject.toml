@@ -1,0 +1,12 @@
+[project]
+name = "optimizer-plant-problem-classifier"
+version = "0.1.0"
+description = "A weak plant-problem classifier prompt, improved by an optimizer against a small labeled set"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.60",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
