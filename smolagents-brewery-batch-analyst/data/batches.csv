@@ -1,0 +1,121 @@
+batch_id,brew_date,beer_style,yeast_strain,fermenter,original_gravity,final_gravity,ferment_temp_c,days_fermented,volume_liters,outcome
+TF-001,2025-01-07,Saison,Marlow-Saison,FV-4,1.060,1.016,18.4,11,800,passed
+TF-002,2025-01-09,Pale Ale,Harbor-US05,FV-2,1.054,1.013,19.3,12,800,passed
+TF-003,2025-01-10,Hefeweizen,Marlow-Wheat,FV-3,1.049,1.012,18.3,15,400,passed
+TF-004,2025-01-13,Stout,Harbor-US05,FV-3,1.070,1.016,18.9,16,400,passed
+TF-005,2025-01-14,Lager,Cove-Lager34,FV-3,1.048,1.010,12.8,16,400,passed
+TF-006,2025-01-16,Hefeweizen,Marlow-Wheat,FV-1,1.051,1.012,17.8,12,400,passed
+TF-007,2025-01-19,Saison,Kestrel-12,FV-1,1.065,1.036,18.7,9,800,stuck
+TF-008,2025-01-21,Lager,Cove-Lager34,FV-3,1.050,1.012,11.3,15,400,passed
+TF-009,2025-01-22,Saison,Kestrel-12,FV-1,1.061,1.030,18.3,12,400,stuck
+TF-010,2025-01-25,Stout,Harbor-US05,FV-2,1.074,1.019,18.7,11,400,passed
+TF-011,2025-01-27,Saison,Marlow-Saison,FV-2,1.059,1.015,18.7,9,400,passed
+TF-012,2025-01-29,Saison,Kestrel-12,FV-1,1.064,1.033,17.9,11,400,stuck
+TF-013,2025-01-30,Saison,Marlow-Saison,FV-3,1.064,1.016,19.2,11,400,passed
+TF-014,2025-02-02,Hefeweizen,Marlow-Wheat,FV-4,1.047,1.012,18.6,13,800,passed
+TF-015,2025-02-04,Pale Ale,Kestrel-12,FV-4,1.055,1.028,18.8,11,400,stuck
+TF-016,2025-02-06,Pale Ale,Kestrel-12,FV-4,1.054,1.032,18.2,11,400,stuck
+TF-017,2025-02-08,Saison,Marlow-Saison,FV-3,1.061,1.013,18.0,12,400,passed
+TF-018,2025-02-10,Stout,Harbor-US05,FV-2,1.068,1.017,20.4,11,800,passed
+TF-019,2025-02-12,Pale Ale,Harbor-US05,FV-2,1.055,1.011,18.5,16,400,passed
+TF-020,2025-02-14,Hefeweizen,Marlow-Wheat,FV-3,1.050,1.011,18.9,16,400,passed
+TF-021,2025-02-15,Saison,Kestrel-12,FV-2,1.059,1.033,18.5,9,400,stuck
+TF-022,2025-02-18,Hefeweizen,Marlow-Wheat,FV-4,1.051,1.011,19.0,9,800,dumped
+TF-023,2025-02-20,Stout,Harbor-US05,FV-3,1.068,1.016,19.3,11,800,passed
+TF-024,2025-02-21,Stout,Cove-English,FV-4,1.062,1.013,18.8,10,800,passed
+TF-025,2025-02-24,Pale Ale,Harbor-US05,FV-3,1.057,1.015,19.2,13,800,passed
+TF-026,2025-02-26,Pale Ale,Harbor-US05,FV-4,1.058,1.015,19.3,9,400,passed
+TF-027,2025-02-27,Hefeweizen,Marlow-Wheat,FV-4,1.053,1.014,18.4,10,400,passed
+TF-028,2025-03-02,Saison,Marlow-Saison,FV-3,1.058,1.014,19.1,13,400,dumped
+TF-029,2025-03-03,Hefeweizen,Marlow-Wheat,FV-2,1.049,1.010,18.0,16,400,passed
+TF-030,2025-03-06,Pale Ale,Harbor-US05,FV-3,1.053,1.012,18.2,16,400,passed
+TF-031,2025-03-08,Stout,Cove-English,FV-4,1.073,1.016,16.6,11,400,passed
+TF-032,2025-03-10,Hefeweizen,Marlow-Wheat,FV-3,1.052,1.011,19.1,10,800,passed
+TF-033,2025-03-12,Pale Ale,Harbor-US05,FV-4,1.053,1.011,19.2,9,400,passed
+TF-034,2025-03-13,Saison,Kestrel-12,FV-4,1.064,1.035,18.1,15,400,stuck
+TF-035,2025-03-15,Lager,Cove-Lager34,FV-3,1.044,1.009,9.6,13,400,passed
+TF-036,2025-03-18,Saison,Kestrel-12,FV-1,1.064,1.033,18.1,9,400,stuck
+TF-037,2025-03-19,Hefeweizen,Marlow-Wheat,FV-3,1.048,1.010,18.7,9,400,passed
+TF-038,2025-03-22,Hefeweizen,Marlow-Wheat,FV-3,1.052,1.013,17.8,15,400,passed
+TF-039,2025-03-23,Saison,Kestrel-12,FV-3,1.065,1.038,18.4,14,400,stuck
+TF-040,2025-03-25,Stout,Harbor-US05,FV-1,1.075,1.018,19.9,12,800,passed
+TF-041,2025-03-28,Stout,Harbor-US05,FV-4,1.072,1.016,18.9,16,400,passed
+TF-042,2025-03-29,Lager,Cove-Lager34,FV-1,1.048,1.011,11.6,10,800,passed
+TF-043,2025-03-31,Hefeweizen,Marlow-Wheat,FV-3,1.047,1.011,18.0,15,400,passed
+TF-044,2025-04-03,Stout,Harbor-US05,FV-1,1.063,1.016,18.2,13,400,passed
+TF-045,2025-04-04,Hefeweizen,Marlow-Wheat,FV-2,1.048,1.010,18.5,15,400,passed
+TF-046,2025-04-07,Pale Ale,Harbor-US05,FV-3,1.050,1.012,18.2,14,800,passed
+TF-047,2025-04-09,Lager,Cove-Lager34,FV-2,1.045,1.011,11.2,13,400,dumped
+TF-048,2025-04-10,Hefeweizen,Marlow-Wheat,FV-3,1.052,1.013,19.4,9,800,passed
+TF-049,2025-04-12,Stout,Cove-English,FV-3,1.072,1.016,18.2,9,400,passed
+TF-050,2025-04-15,Stout,Cove-English,FV-4,1.062,1.016,18.8,9,400,passed
+TF-051,2025-04-16,Saison,Marlow-Saison,FV-3,1.062,1.016,18.7,10,400,passed
+TF-052,2025-04-19,Saison,Kestrel-12,FV-3,1.060,1.029,18.6,10,400,stuck
+TF-053,2025-04-20,Pale Ale,Kestrel-12,FV-3,1.055,1.031,19.0,9,400,stuck
+TF-054,2025-04-23,Lager,Cove-Lager34,FV-2,1.050,1.012,12.5,16,800,passed
+TF-055,2025-04-24,Stout,Cove-English,FV-4,1.068,1.014,17.8,13,800,passed
+TF-056,2025-04-26,Pale Ale,Harbor-US05,FV-2,1.055,1.012,18.2,10,400,passed
+TF-057,2025-04-28,Hefeweizen,Marlow-Wheat,FV-2,1.046,1.011,18.5,15,400,passed
+TF-058,2025-04-30,Hefeweizen,Marlow-Wheat,FV-4,1.051,1.010,18.6,13,800,passed
+TF-059,2025-05-03,Hefeweizen,Marlow-Wheat,FV-1,1.048,1.012,18.0,9,800,passed
+TF-060,2025-05-05,Lager,Cove-Lager34,FV-1,1.045,1.011,12.0,12,800,passed
+TF-061,2025-05-06,Stout,Cove-English,FV-3,1.070,1.018,18.6,10,800,passed
+TF-062,2025-05-09,Pale Ale,Kestrel-12,FV-1,1.058,1.035,18.0,9,400,stuck
+TF-063,2025-05-11,Stout,Harbor-US05,FV-1,1.072,1.017,19.1,12,400,dumped
+TF-064,2025-05-12,Lager,Cove-Lager34,FV-4,1.051,1.010,10.8,13,400,passed
+TF-065,2025-05-14,Stout,Cove-English,FV-2,1.066,1.017,17.9,14,400,passed
+TF-066,2025-05-17,Stout,Harbor-US05,FV-4,1.073,1.016,19.6,16,400,passed
+TF-067,2025-05-19,Lager,Cove-Lager34,FV-4,1.048,1.010,10.7,11,800,passed
+TF-068,2025-05-20,Saison,Marlow-Saison,FV-1,1.064,1.016,17.7,15,400,dumped
+TF-069,2025-05-23,Hefeweizen,Marlow-Wheat,FV-2,1.051,1.012,18.6,13,400,dumped
+TF-070,2025-05-24,Hefeweizen,Marlow-Wheat,FV-1,1.047,1.009,18.8,11,400,passed
+TF-071,2025-05-26,Saison,Marlow-Saison,FV-4,1.062,1.015,17.9,12,800,passed
+TF-072,2025-05-29,Pale Ale,Harbor-US05,FV-3,1.057,1.014,18.2,12,800,passed
+TF-073,2025-05-31,Hefeweizen,Marlow-Wheat,FV-2,1.051,1.012,18.1,16,800,passed
+TF-074,2025-06-01,Hefeweizen,Marlow-Wheat,FV-1,1.050,1.012,19.2,11,800,passed
+TF-075,2025-06-04,Lager,Cove-Lager34,FV-3,1.051,1.012,11.8,11,400,passed
+TF-076,2025-06-05,Pale Ale,Kestrel-12,FV-4,1.056,1.032,18.8,13,800,stuck
+TF-077,2025-06-08,Stout,Cove-English,FV-1,1.076,1.016,19.1,14,800,passed
+TF-078,2025-06-10,Lager,Cove-Lager34,FV-1,1.044,1.010,11.8,15,400,passed
+TF-079,2025-06-12,Saison,Marlow-Saison,FV-3,1.059,1.014,17.3,15,400,passed
+TF-080,2025-06-14,Lager,Cove-Lager34,FV-1,1.047,1.011,11.3,16,800,passed
+TF-081,2025-06-16,Saison,Marlow-Saison,FV-1,1.063,1.015,18.0,16,800,passed
+TF-082,2025-06-17,Lager,Cove-Lager34,FV-1,1.045,1.011,11.7,13,400,passed
+TF-083,2025-06-20,Lager,Cove-Lager34,FV-2,1.046,1.010,11.8,9,400,passed
+TF-084,2025-06-22,Saison,Marlow-Saison,FV-1,1.061,1.015,18.8,15,800,passed
+TF-085,2025-06-24,Saison,Marlow-Saison,FV-1,1.060,1.013,17.7,9,400,passed
+TF-086,2025-06-25,Stout,Cove-English,FV-2,1.071,1.018,19.6,13,800,passed
+TF-087,2025-06-27,Saison,Marlow-Saison,FV-1,1.061,1.013,18.7,15,400,passed
+TF-088,2025-06-30,Lager,Cove-Lager34,FV-2,1.048,1.012,12.1,15,800,passed
+TF-089,2025-07-02,Hefeweizen,Marlow-Wheat,FV-1,1.053,1.013,19.4,15,400,passed
+TF-090,2025-07-03,Stout,Cove-English,FV-4,1.064,1.013,25.7,12,400,off-flavor
+TF-091,2025-07-05,Hefeweizen,Marlow-Wheat,FV-1,1.048,1.012,19.2,13,400,passed
+TF-092,2025-07-08,Pale Ale,Harbor-US05,FV-4,1.050,1.013,24.5,12,400,off-flavor
+TF-093,2025-07-09,Lager,Cove-Lager34,FV-3,1.045,1.010,10.6,12,400,passed
+TF-094,2025-07-11,Saison,Kestrel-12,FV-4,1.066,1.035,24.4,12,800,off-flavor
+TF-095,2025-07-14,Lager,Cove-Lager34,FV-2,1.050,1.012,12.2,10,800,passed
+TF-096,2025-07-15,Stout,Harbor-US05,FV-3,1.063,1.015,18.5,9,400,passed
+TF-097,2025-07-17,Hefeweizen,Marlow-Wheat,FV-4,1.049,1.010,24.1,16,400,off-flavor
+TF-098,2025-07-20,Saison,Marlow-Saison,FV-2,1.063,1.013,17.8,13,400,passed
+TF-099,2025-07-21,Stout,Harbor-US05,FV-1,1.066,1.015,18.8,15,400,passed
+TF-100,2025-07-24,Saison,Marlow-Saison,FV-2,1.065,1.015,18.4,12,800,passed
+TF-101,2025-07-25,Hefeweizen,Marlow-Wheat,FV-4,1.051,1.012,24.4,14,400,off-flavor
+TF-102,2025-07-27,Stout,Harbor-US05,FV-4,1.074,1.015,25.0,11,400,off-flavor
+TF-103,2025-07-30,Saison,Kestrel-12,FV-2,1.062,1.035,18.7,10,400,stuck
+TF-104,2025-07-31,Hefeweizen,Marlow-Wheat,FV-4,1.046,1.012,24.6,14,400,off-flavor
+TF-105,2025-08-02,Hefeweizen,Marlow-Wheat,FV-1,1.047,1.012,18.2,16,400,passed
+TF-106,2025-08-05,Hefeweizen,Marlow-Wheat,FV-4,1.050,1.012,26.3,13,400,off-flavor
+TF-107,2025-08-07,Pale Ale,Kestrel-12,FV-2,1.051,1.026,17.7,13,400,stuck
+TF-108,2025-08-08,Hefeweizen,Marlow-Wheat,FV-1,1.051,1.012,17.4,16,800,passed
+TF-109,2025-08-11,Hefeweizen,Marlow-Wheat,FV-2,1.052,1.012,17.8,15,400,passed
+TF-110,2025-08-12,Lager,Cove-Lager34,FV-4,1.050,1.011,27.0,16,400,off-flavor
+TF-111,2025-08-14,Stout,Harbor-US05,FV-4,1.074,1.018,26.6,9,400,off-flavor
+TF-112,2025-08-17,Pale Ale,Kestrel-12,FV-2,1.055,1.027,19.2,14,400,stuck
+TF-113,2025-08-19,Pale Ale,Kestrel-12,FV-3,1.055,1.033,19.0,15,400,stuck
+TF-114,2025-08-20,Pale Ale,Harbor-US05,FV-3,1.053,1.013,18.1,16,800,passed
+TF-115,2025-08-22,Hefeweizen,Marlow-Wheat,FV-4,1.048,1.010,25.8,11,400,off-flavor
+TF-116,2025-08-24,Lager,Cove-Lager34,FV-3,1.045,1.010,12.2,13,400,passed
+TF-117,2025-08-27,Saison,Marlow-Saison,FV-4,1.057,1.013,25.1,14,400,off-flavor
+TF-118,2025-08-28,Hefeweizen,Marlow-Wheat,FV-2,1.053,1.012,17.8,11,400,passed
+TF-119,2025-08-30,Hefeweizen,Marlow-Wheat,FV-2,1.049,1.012,18.5,9,400,passed
+TF-120,2025-09-02,Stout,Harbor-US05,FV-4,1.074,1.017,26.9,13,400,off-flavor
