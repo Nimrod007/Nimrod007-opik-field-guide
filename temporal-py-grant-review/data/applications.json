@@ -1,0 +1,34 @@
+[
+  {
+    "id": "GR-2041",
+    "applicant": "Larkspur Lane Tenants' Association",
+    "organization_type": "resident_group",
+    "county": "Harbor County",
+    "title": "Rooftop rain-garden and tool library",
+    "summary": "Residents of a 60-unit building will convert an unused roof terrace into a rain garden and stock a shared tool library in the basement. Forty households have signed on to staff it on a rota, and the building owner has agreed to a five-year lease at no charge. Workshops on basic repairs will run monthly for the wider neighbourhood.",
+    "requested_amount": 12000,
+    "budget": [
+      {"item": "Planters, soil and drainage layer", "amount": 6200},
+      {"item": "Tools and shelving", "amount": 3300},
+      {"item": "Workshop materials and signage", "amount": 1500},
+      {"item": "Project coordination stipend", "amount": 1000}
+    ]
+  },
+  {
+    "id": "GR-2042",
+    "applicant": "Saltmarsh Youth Sailing Collective",
+    "organization_type": "nonprofit",
+    "county": "Harbor County",
+    "title": "Free weekend dinghy lessons",
+    "summary": "A volunteer-run club wants to teach 80 teenagers to sail over one summer. They own two boats, have two certified instructors, and plan to buy safety gear and rent a third boat. There is no plan yet for what happens after the summer, and insurance is still being quoted.",
+    "requested_amount": 9000,
+    "budget": [
+      {"item": "Life jackets and safety gear", "amount": 2400},
+      {"item": "Boat rental", "amount": 3100},
+      {"item": "Instructor travel", "amount": 1200},
+      {"item": "Insurance (estimated)", "amount": 1100},
+      {"item": "Snacks and end-of-season party", "amount": 600},
+      {"item": "Marketing", "amount": 1500}
+    ]
+  }
+]
