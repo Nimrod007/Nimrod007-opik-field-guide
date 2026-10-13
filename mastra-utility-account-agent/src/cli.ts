@@ -16,7 +16,7 @@ if (!process.env.OPENAI_API_KEY) {
 }
 
 // Import after env is loaded.
-const { mastra } = await import("./mastra.ts");
+const { mastra, OPIK_PROJECT } = await import("./mastra.ts");
 const { SCRIPT } = await import("./script.ts");
 
 const agent = mastra.getAgent("accountAgent");
@@ -25,3 +25,7 @@ for (const [i, question] of SCRIPT.entries()) {
   const result = await agent.generate(question, { maxSteps: 6 });
   console.log(`Agent:    ${result.text}`);
 }
+
+// Flush the OTel exporter: spans are batched, and without this the last trace can be lost on exit.
+await mastra.shutdown();
+console.log(`\nDone. Open the "${OPIK_PROJECT}" project in Opik to see the traces.`);

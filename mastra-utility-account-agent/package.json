@@ -4,7 +4,9 @@
   "private": true,
   "description": "A Mastra utility-account agent (meter readings, usage history, outage reports) over fictional data.",
   "type": "module",
-  "engines": { "node": ">=22.13.0" },
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "demo": "tsx src/cli.ts",
     "test": "vitest run",
@@ -13,6 +15,9 @@
   "dependencies": {
     "@ai-sdk/openai": "^2.0.42",
     "@mastra/core": "1.76.0",
+    "@mastra/libsql": "1.26.0",
+    "@mastra/observability": "1.19.0",
+    "@mastra/otel-exporter": "1.4.6",
     "dotenv": "^17.2.0",
     "zod": "^4.0.0"
   },
