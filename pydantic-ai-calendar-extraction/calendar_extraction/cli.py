@@ -9,15 +9,18 @@ from dotenv import load_dotenv
 
 from .agent import build_agent, extract_event
 from .schema import load_emails
+from .tracing import flush_tracing, setup_tracing
 
 
 def cmd_extract(args: argparse.Namespace) -> None:
+    setup_tracing()
     agent = build_agent()
     for email in load_emails():
         if args.id and email.id != args.id:
             continue
         print(f"[{email.id}] {email.text[:60]!r}...")
         print(json.dumps(extract_event(agent, email), indent=2), "\n")
+    flush_tracing()
 
 
 def main(argv: list[str] | None = None) -> None:

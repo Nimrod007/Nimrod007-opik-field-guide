@@ -5,6 +5,8 @@ description = "Pydantic AI agent that extracts typed calendar events from messy 
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "logfire>=4.40.0",
+    "opik>=2.2.31",
     "pydantic-ai>=2.31.1",
     "python-dotenv>=1.2.3",
 ]
