@@ -1,0 +1,16 @@
+[project]
+name = "litellm-exhibit-labels"
+version = "0.1.0"
+description = "Route museum exhibit-label prompts to two providers through LiteLLM and compare cost and latency."
+requires-python = ">=3.12"
+dependencies = [
+    "litellm>=1.79",
+    "python-dotenv>=1.2.3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

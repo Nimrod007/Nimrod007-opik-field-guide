@@ -1,0 +1,74 @@
+[
+  {
+    "id": "A-101",
+    "name": "The Lantern Moth Fossil",
+    "kind": "fossil",
+    "period": "Late Pliocene, about 3.1 million years ago",
+    "found": "Vellmoor Clay Pits, northern Aldermere",
+    "facts": [
+      "Wingspan of 14 cm preserved in blue-grey clay",
+      "Scales on the wings kept a faint iridescent sheen",
+      "Donated by the Hartwell Quarry Society in 1962"
+    ]
+  },
+  {
+    "id": "A-102",
+    "name": "Skeleton of the Marsh Stilt-Strider",
+    "kind": "skeleton",
+    "period": "Early Holocene, about 9,000 years ago",
+    "found": "Tessaly Fen, southern Aldermere",
+    "facts": [
+      "Stood 2.1 m tall on hollow, stilt-like legs",
+      "Flightless; probably waded for freshwater snails",
+      "Eleven of the twelve known skeletons were lost in a 1904 flood"
+    ]
+  },
+  {
+    "id": "A-103",
+    "name": "Ember Amber with Beetle",
+    "kind": "amber",
+    "period": "Eocene, about 44 million years ago",
+    "found": "Korrin Ridge resin beds",
+    "facts": [
+      "A copper-coloured beetle, 6 mm long, caught mid-stride",
+      "Shows a droplet of the tree resin that trapped it",
+      "Glows orange under ultraviolet light"
+    ]
+  },
+  {
+    "id": "A-104",
+    "name": "Cast of the Glasswing Pterosaur Skull",
+    "kind": "cast",
+    "period": "Early Cretaceous, about 120 million years ago",
+    "found": "Orrowby Shale, eastern Aldermere",
+    "facts": [
+      "Skull is 38 cm long with a thin, translucent crest",
+      "The original is too fragile to display",
+      "Cast was made from a scan taken in 1998"
+    ]
+  },
+  {
+    "id": "A-105",
+    "name": "Thornback Trilobite Slab",
+    "kind": "fossil",
+    "period": "Ordovician, about 460 million years ago",
+    "found": "Pell Harbour limestone",
+    "facts": [
+      "Forty-one trilobites crowd one slab, all facing the same way",
+      "Spines up to 3 cm long",
+      "Suggests a mass moulting event or a sudden current"
+    ]
+  },
+  {
+    "id": "A-106",
+    "name": "Moonfern Leaf Impression",
+    "kind": "plant fossil",
+    "period": "Permian, about 280 million years ago",
+    "found": "Quillgate coal seam",
+    "facts": [
+      "Frond is 22 cm long with crescent-shaped leaflets",
+      "Named for its pale, moon-like leaflets in raking light",
+      "First specimen catalogued by Dr. Ines Abernathy in 1931"
+    ]
+  }
+]
