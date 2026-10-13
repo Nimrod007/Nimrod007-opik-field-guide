@@ -16,7 +16,7 @@ def trace_graph(compiled_graph):
 
     # track_langgraph attaches the OpikTracer to the compiled graph, so every
     # .invoke() becomes one trace with a span per node and a nested llm span for
-    # the chat model. Passing the graph also lets Opik draw it in the trace's
-    # "agent graph" view.
+    # the chat model. Passing graph= stores its structure in the trace metadata
+    # (_opik_graph_definition) so the UI can draw the retrieve -> generate graph.
     tracer = OpikTracer(project_name=PROJECT_NAME, graph=compiled_graph.get_graph(xray=True))
     return track_langgraph(compiled_graph, tracer)

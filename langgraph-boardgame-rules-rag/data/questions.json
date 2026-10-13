@@ -1,26 +1,62 @@
 [
-  {"question": "In Saltmarsh Traders, how many pearls do I need to win?",
-   "expected_output": "8 pearls; the game ends at the end of that round so everyone gets equal turns."},
-  {"question": "Can I raid a rival's ship while it is sitting in Driftwood Quay?",
-   "expected_output": "No. A ship in Driftwood Quay cannot be raided."},
-  {"question": "What happens to my ship if a storm tide is flipped and I am out at sea?",
-   "expected_output": "Ships not in a harbour cannot sail for the rest of the round and their owner loses 1 cargo card of their choice."},
-  {"question": "How much does the second card pay when I sell two of the same cargo type in one turn?",
-   "expected_output": "The second card pays 1 coin less than the printed price."},
-  {"question": "In Emberfall Keep, how many action points does a hero get and what does an attack cost?",
-   "expected_output": "3 action points per turn; an attack costs 2."},
-  {"question": "What does rolling a double on the ember dice do?",
-   "expected_output": "It is a Flare: the attack deals 2 wounds instead of 1."},
-  {"question": "How much health does a revived hero come back with, and what does the reviver pay?",
-   "expected_output": "4 health; the reviver spends 2 action points and must be in the same room."},
-  {"question": "What happens when the Ash Clock reaches 10?",
-   "expected_output": "A monster is drawn and placed in the Gatehouse of the current floor."},
-  {"question": "In Tidecaller, how many Reef cards can I control?",
-   "expected_output": "At most 3; playing a fourth forces the owner to discard one first."},
-  {"question": "What does a Counter spell cost and how often can I use it?",
-   "expected_output": "2 crystals, and only one card may be countered per opponent turn."},
-  {"question": "What happens if I have to draw from an empty deck in Tidecaller?",
-   "expected_output": "You lose 3 Anchor points instead and the draw is skipped."},
-  {"question": "Can Saltmarsh Traders be played solo?",
-   "expected_output": "The rulebooks do not cover solo play; Saltmarsh Traders is a 2-4 player game."}
+ {
+  "question": "In Saltmarsh Traders, how many pearls do I need to win?",
+  "expected_output": "8 pearls; the game ends at the end of that round so everyone gets equal turns."
+ },
+ {
+  "question": "Can I raid a rival's ship while it is sitting in Driftwood Quay?",
+  "expected_output": "No. A ship in Driftwood Quay cannot be raided."
+ },
+ {
+  "question": "What happens to my ship if a storm tide is flipped and I am out at sea?",
+  "expected_output": "Ships not in a harbour cannot sail for the rest of the round and their owner loses 1 cargo card of their choice."
+ },
+ {
+  "question": "How much does the second card pay when I sell two of the same cargo type in one turn?",
+  "expected_output": "The second card pays 1 coin less than the printed price."
+ },
+ {
+  "question": "In Emberfall Keep, how many action points does a hero get and what does an attack cost?",
+  "expected_output": "3 action points per turn; an attack costs 2."
+ },
+ {
+  "question": "What does rolling a double on the ember dice do?",
+  "expected_output": "It is a Flare: the attack deals 2 wounds instead of 1."
+ },
+ {
+  "question": "How much health does a revived hero come back with, and what does the reviver pay?",
+  "expected_output": "4 health; the reviver spends 2 action points and must be in the same room."
+ },
+ {
+  "question": "What happens when the Ash Clock reaches 10?",
+  "expected_output": "A monster is drawn and placed in the Gatehouse of the current floor."
+ },
+ {
+  "question": "In Tidecaller, how many Reef cards can I control?",
+  "expected_output": "At most 3; playing a fourth forces the owner to discard one first."
+ },
+ {
+  "question": "What does a Counter spell cost and how often can I use it?",
+  "expected_output": "2 crystals, and only one card may be countered per opponent turn."
+ },
+ {
+  "question": "What happens if I have to draw from an empty deck in Tidecaller?",
+  "expected_output": "You lose 3 Anchor points instead and the draw is skipped."
+ },
+ {
+  "question": "In Saltmarsh Traders, my ship ends its sail in Driftwood Quay next to a rival's ship. Can I raid them, and can I still buy a pearl this turn?",
+  "expected_output": "No, a ship in Driftwood Quay cannot be raided. You can buy 1 pearl for 6 coins in the Trade phase, since the Pearl Exchange is in Driftwood Quay."
+ },
+ {
+  "question": "In Emberfall Keep, the Ash Clock is at 11 and I use a Quenching Flask. Where does the clock land and what happens to the flask?",
+  "expected_output": "The marker moves back up 3 spaces to 14 and the flask is discarded; a monster arrives only once the clock again reaches 10."
+ },
+ {
+  "question": "In Emberfall Keep, can a fallen hero be revived by a hero who is already carrying 3 relics?",
+  "expected_output": "Yes: reviving costs the reviver 2 action points in the same room and is unrelated to relics; the revived hero returns with 4 health."
+ },
+ {
+  "question": "Can Saltmarsh Traders be played solo?",
+  "expected_output": "The rulebooks do not cover solo play; Saltmarsh Traders is a 2-4 player game."
+ }
 ]
