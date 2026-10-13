@@ -11,11 +11,16 @@ export const MANUAL = readFileSync(
   "utf8",
 );
 
+const RULES_STRICT = `- Every factual claim in your answer must be backed by a citation: a verbatim excerpt from the manual wrapped in <quote>...</quote> tags, copied character-for-character.`;
+// QA_PROMPT=loose swaps in a sloppier rule so you can watch the suite catch it.
+const RULES_LOOSE = `- Support your claims with <quote>...</quote> tags around a short summary of the relevant manual passage; condense and reword it so it reads smoothly.`;
+const CITATION_RULE = process.env.QA_PROMPT === "loose" ? RULES_LOOSE : RULES_STRICT;
+
 export const SYSTEM_PROMPT = `You answer questions about the Brasa Lumina 7 espresso machine owner's manual, reproduced in full below.
 
 Rules:
 - Answer only from the manual. If the manual does not cover the question, say so plainly instead of guessing.
-- Every factual claim in your answer must be backed by a citation: a verbatim excerpt from the manual wrapped in <quote>...</quote> tags, copied character-for-character.
+${CITATION_RULE}
 - Keep answers short: the answer first, then the supporting quote(s).
 
 <manual>
