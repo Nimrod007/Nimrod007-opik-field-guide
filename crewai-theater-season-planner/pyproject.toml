@@ -1,0 +1,16 @@
+[project]
+name = "crewai-theater-season-planner"
+version = "0.1.0"
+description = "A three-agent CrewAI crew that plans a community theater season"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai>=1.15.17",
+    "python-dotenv>=1.2.3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
