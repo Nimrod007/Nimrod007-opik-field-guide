@@ -48,7 +48,7 @@ because the span says which provider it is (see Gotchas).
 
 1. Install: `npm install`
 2. Keys: `cp .env.example .env` and put your `OPENAI_API_KEY` in it (a `.env` one directory up works too).
-   Opik is expected at `http://localhost:5173`; for Comet Cloud set `OTEL_EXPORTER_OTLP_ENDPOINT` and `OPIK_API_KEY`.
+   Opik is expected at `http://localhost:5173`; for Opik Cloud set `OTEL_EXPORTER_OTLP_ENDPOINT` and `OPIK_API_KEY`.
 3. Run the scripted demo: `npm run demo`. It boots the server on port 4290, asks five questions, closes the
    server and flushes spans (about 6 seconds, well under a cent).
 4. Read the project back: `npm run check`. It queries Opik's REST API and fails if a question trace lacks usage, cost or text.

@@ -12,7 +12,7 @@ let provider: NodeTracerProvider | undefined;
 /**
  * Plain OpenTelemetry, no Opik SDK. Opik ingests OTLP over HTTP/protobuf at /api/v1/private/otel;
  * the two headers choose the workspace and the project the traces land in (without projectName
- * they go to "Default Project"). Local Opik needs no Authorization header; Comet Cloud adds
+ * they go to "Default Project"). Local Opik needs no Authorization header; Opik Cloud adds
  * `Authorization: <api key>`.
  */
 export function initTelemetry(exporter?: SpanExporter): void {
