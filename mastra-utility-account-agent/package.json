@@ -1,0 +1,25 @@
+{
+  "name": "mastra-utility-account-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Mastra utility-account agent (meter readings, usage history, outage reports) over fictional data.",
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "demo": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^2.0.42",
+    "@mastra/core": "1.76.0",
+    "dotenv": "^17.2.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
