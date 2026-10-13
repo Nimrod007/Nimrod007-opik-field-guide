@@ -14,6 +14,8 @@ load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from crewai import Agent, Crew, Process, Task
 
+from opik.integrations.crewai import track_crewai
+
 from season_data import load_inputs
 
 MODEL = "gpt-4o-mini"
@@ -75,6 +77,10 @@ crew = Crew(
     process=Process.sequential,
     verbose=True,
 )
+
+# track_crewai patches the crew: one trace per kickoff, with a span per task and
+# agent and an llm span (tokens + cost) for every completion, in this project.
+track_crewai(project_name="crewai-theater-season-planner", crew=crew)
 
 if __name__ == "__main__":
     result = crew.kickoff(inputs=load_inputs())
