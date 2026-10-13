@@ -5,6 +5,7 @@ description = "A weak plant-problem classifier prompt, improved by an optimizer 
 requires-python = ">=3.12"
 dependencies = [
     "openai>=1.60",
+    "opik==2.2.99",
     "python-dotenv>=1.0",
 ]
 

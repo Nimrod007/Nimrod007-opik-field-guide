@@ -3,10 +3,13 @@
 import json
 import pathlib
 
+import opik
 from openai import OpenAI
+from opik.integrations.openai import track_openai
 
 LABELS = ["pests", "disease", "overwatering", "underwatering", "nutrient-deficiency", "light"]
 MODEL = "gpt-4o-mini"
+PROJECT_NAME = "optimizer-plant-problem-classifier"
 DATA_PATH = pathlib.Path(__file__).parent / "data" / "problems.json"
 
 # A first-draft prompt: categories in loose prose, nothing about the answer format.
@@ -31,6 +34,14 @@ def label_accuracy(expected: str, answer: str) -> float:
     return 1.0 if answer.strip().lower().strip(".!\"'` *") == expected else 0.0
 
 
+def make_client() -> OpenAI:
+    """OpenAI client wrapped for Opik."""
+    # track_openai wraps the client: every completion becomes an llm span with
+    # token usage and cost, in the project named by OPIK_PROJECT_NAME.
+    return track_openai(OpenAI(), project_name=PROJECT_NAME)
+
+
+@opik.track(name="classify_problem", project_name=PROJECT_NAME)  # one trace per description; the llm span nests inside
 def classify(client: OpenAI, system: str, text: str) -> str:
     """Ask the model for a label using `system` as the system prompt."""
     resp = client.chat.completions.create(
