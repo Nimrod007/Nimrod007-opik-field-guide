@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 # Load the repo-root .env (if present) before crewai reads the keys.
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
+import opik
 from crewai import Agent, Crew, Process, Task
 
 from opik.integrations.crewai import track_crewai
@@ -42,8 +43,8 @@ scheduler = Agent(
 shortlist_task = Task(
     name="Shortlist the plays",
     description=(
-        "Choose five plays for the coming season from the candidates below, "
-        "balancing genres. Use only these facts.\n\nCANDIDATES:\n{plays}"
+        "Choose EXACTLY five plays (not six) for the coming season from the candidates "
+        "below, balancing genres. Use only these facts.\n\nCANDIDATES:\n{plays}"
     ),
     expected_output="A list of five plays, one line of reasoning each.",
     agent=dramaturg,
@@ -62,11 +63,13 @@ budget_task = Task(
 schedule_task = Task(
     name="Schedule the season",
     description=(
-        "Place each approved play in one venue slot and give a rehearsal start "
-        "date, respecting rehearsal weeks and slot constraints.\n\n"
+        "Place each play that survived the budget check in its own venue slot (one "
+        "play per slot, five slots, no sharing). A slot's start date is opening "
+        "night; the rehearsal start is that date minus the play's rehearsal weeks. "
+        "Respect each slot's constraint.\n\n"
         "CALENDAR:\n{calendar}\n\nCANDIDATES:\n{plays}"
     ),
-    expected_output="A season calendar: play, slot, rehearsal start, opening date.",
+    expected_output="A season calendar of exactly five rows: play, slot, rehearsal start, opening night.",
     agent=scheduler,
     context=[shortlist_task, budget_task],
 )
@@ -86,3 +89,7 @@ if __name__ == "__main__":
     result = crew.kickoff(inputs=load_inputs())
     print("\n=== SEASON PLAN ===\n")
     print(result)
+    # Opik sends traces from a background thread; flush_tracker blocks until the
+    # kickoff trace and its spans are delivered, otherwise the process can exit first
+    # and the project stays empty.
+    opik.flush_tracker()

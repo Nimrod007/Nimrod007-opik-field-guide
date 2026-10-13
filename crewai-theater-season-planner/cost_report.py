@@ -39,7 +39,8 @@ def cost_by_agent(spans: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
 
 def latest_kickoff_spans(client: opik.Opik) -> tuple[Any, list[dict[str, Any]]]:
     # One trace per crew.kickoff(): the newest one is the run we just did.
-    traces = client.search_traces(project_name=PROJECT, max_results=1)
+    # wait_for_at_least polls until the trace is readable (ingestion is asynchronous).
+    traces = client.search_traces(project_name=PROJECT, max_results=1, wait_for_at_least=1, wait_for_timeout=60)
     if not traces:
         raise SystemExit(f"No traces in project {PROJECT!r}; run main.py first.")
     trace = traces[0]
