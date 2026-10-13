@@ -4,7 +4,9 @@
   "private": true,
   "description": "A BeeAI ReAct agent that finds ingredient substitutions for home cooks.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "demo": "tsx src/demo.ts",
     "test": "vitest run",
@@ -12,6 +14,9 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.3.13",
+    "@arizeai/openinference-instrumentation-beeai": "^1.6.2",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.57.2",
+    "@opentelemetry/sdk-node": "^0.57.2",
     "beeai-framework": "0.1.13",
     "dotenv": "^17.2.0",
     "zod": "^3.24.2"

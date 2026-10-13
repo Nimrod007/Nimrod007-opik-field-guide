@@ -15,6 +15,9 @@ if (!process.env.OPENAI_API_KEY) {
 // Some dev machines route OpenAI traffic through a proxy via this variable; use the public API.
 delete process.env.OPENAI_BASE_URL;
 
+// Start tracing before the agent module loads so BeeAI is patched when it is first used.
+const { startTracing } = await import("./tracing.ts");
+const tracing = startTracing();
 const { findSubstitution } = await import("./agent.ts");
 
 const requests: string[] = JSON.parse(
@@ -25,3 +28,7 @@ for (const [i, request] of requests.entries()) {
   console.log(`\n=== Request ${i + 1} ===\nCook: ${request}`);
   console.log(`Answer:\n${await findSubstitution(request)}`);
 }
+
+// Flush the OTel exporter so the last spans reach Opik before the process exits.
+await tracing.shutdown();
+console.log(tracing.enabled ? '\nDone. Open the "beeai-recipe-substitution-agent" project in Opik.' : "\nDone (tracing disabled).");
