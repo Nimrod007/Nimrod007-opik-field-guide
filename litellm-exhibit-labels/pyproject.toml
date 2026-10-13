@@ -5,6 +5,7 @@ description = "Route museum exhibit-label prompts to two providers through LiteL
 requires-python = ">=3.12"
 dependencies = [
     "litellm>=1.79",
+    "opik>=2.2.99",
     "python-dotenv>=1.2.3",
 ]
 
