@@ -1,0 +1,63 @@
+[
+  {
+    "id": "roadmap-sync",
+    "sent": "2026-10-12",
+    "text": "From: Ines Duarte <ines.duarte@halvorsen-labs.example>\nTo: Tobias Wren; Priyanka Sethi\nSubject: Q4 roadmap sync\n\nHi both - locking in the quarterly roadmap sync with Halvorsen Labs for Thursday 15 Oct, 2:00-3:30pm. We'll be in Room Fennel, 3rd floor. Tobias, bring the migration estimates. See you there, Ines",
+    "assertions": [
+      "The date is 2026-10-15, start time 14:00 and end time 15:30",
+      "The location is Room Fennel (3rd floor) and the attendees include Ines Duarte, Tobias Wren and Priyanka Sethi",
+      "No meeting URL is given because the email mentions none"
+    ]
+  },
+  {
+    "id": "lunch-friday",
+    "sent": "2026-10-13",
+    "text": "hey! lunch this coming Friday at noon? the usual spot - Pasta Verdi on Mill St. bringing Okafor along, he's dying to meet you. lmk - Dana",
+    "assertions": [
+      "The date is 2026-10-16 and the start time is 12:00",
+      "The location is Pasta Verdi on Mill St",
+      "The end time is null because the email never says when lunch ends",
+      "The attendees include Dana and Okafor"
+    ]
+  },
+  {
+    "id": "quick-call",
+    "sent": "2026-10-12",
+    "text": "Rosalind - can we do a quick call Wednesday at 9? nothing fancy, just need 5 min on the vendor contract. -Marcus",
+    "assertions": [
+      "The date is 2026-10-14 and the start time is 09:00",
+      "The end time, location and meeting URL are all null because the email gives none of them",
+      "The attendees include Rosalind and Marcus"
+    ]
+  },
+  {
+    "id": "cold-chain-webinar",
+    "sent": "2026-10-09",
+    "text": "Reminder: our webinar 'Cold-Chain Audits Without the Panic' is on Oct 21 at 16:00 CEST (that's 10am ET). It runs 45 minutes. Join here: https://meet.example.org/cc-audit-77 - no registration needed. Host: Linnea Ostrom",
+    "assertions": [
+      "The title is about Cold-Chain Audits Without the Panic",
+      "The date is 2026-10-21, start time 16:00 and end time 16:45, derived from the 45 minute duration",
+      "The meeting URL is https://meet.example.org/cc-audit-77 and the timezone is CEST (or Europe/Berlin-equivalent)",
+      "The location is null or the online link, not an invented street address"
+    ]
+  },
+  {
+    "id": "moved-design-review",
+    "sent": "2026-10-13",
+    "text": "Fwd: Fwd: RE: design review\n\n> > moved! design review is now FRIDAY not Thursday - same time (10:30), same room (Harbor). sorry all, the Thursday slot got eaten by the offsite. - Wen\n> > original: Thu 10:30-11:30, Harbor",
+    "assertions": [
+      "The date is 2026-10-16 (Friday), not the superseded Thursday 2026-10-15",
+      "The start time is 10:30 and the location is Harbor",
+      "The title mentions design review"
+    ]
+  },
+  {
+    "id": "coffee-someday",
+    "sent": "2026-10-12",
+    "text": "Great seeing you at the meetup! We should grab coffee sometime soon and talk shop. Ping me whenever works - Jun",
+    "assertions": [
+      "The date, start time, end time, location and meeting URL are all null because no concrete plan was made",
+      "No time or place is invented to make the event look complete"
+    ]
+  }
+]
