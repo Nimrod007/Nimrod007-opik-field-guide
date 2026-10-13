@@ -1,0 +1,10 @@
+[
+  { "date": "2026-11-04", "event": "Taurid fireball peak", "bestTime": "9 pm to midnight", "look": "northeast, high", "notes": "Slow, bright meteors; a few per hour under dark skies." },
+  { "date": "2026-11-17", "event": "Leonid meteor shower peak", "bestTime": "after 1 am", "look": "east, toward Leo", "notes": "Fast, thin trails; roughly 10 per hour. Moon sets early." },
+  { "date": "2026-11-22", "event": "Vesper Ridge Comet close pass", "bestTime": "dusk, 45 minutes after sunset", "look": "low in the southwest", "notes": "Fictional comet, magnitude 5.8: binoculars recommended, no telescope needed." },
+  { "date": "2026-12-01", "event": "Jupiter at opposition", "bestTime": "all night", "look": "rises in the east at sunset", "notes": "Four Galilean moons visible in small binoculars." },
+  { "date": "2026-12-14", "event": "Geminid meteor shower peak", "bestTime": "10 pm to 2 am", "look": "anywhere, Gemini high in the south", "notes": "Up to 90 meteors an hour; dress warmly." },
+  { "date": "2026-12-20", "event": "Moon and Saturn conjunction", "bestTime": "early evening", "look": "south-southwest", "notes": "Crescent moon sits within two degrees of Saturn; rings visible in a 60 mm telescope." },
+  { "date": "2027-01-03", "event": "Quadrantid meteor shower peak", "bestTime": "3 am to dawn", "look": "northeast, near the Big Dipper handle", "notes": "Sharp peak lasting only a few hours." },
+  { "date": "2027-01-12", "event": "Total lunar eclipse", "bestTime": "11:10 pm to 12:35 am", "look": "high in the south", "notes": "Naked-eye event, 84 minutes of totality; no filters needed." }
+]
