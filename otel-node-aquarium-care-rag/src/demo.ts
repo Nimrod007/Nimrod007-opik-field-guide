@@ -3,6 +3,10 @@ import { serve } from "@hono/node-server";
 import OpenAI from "openai";
 import { CareRag } from "./rag.js";
 import { createApp } from "./server.js";
+import { initTelemetry, shutdownTelemetry } from "./telemetry.js";
+
+// Must run before the first span is created.
+initTelemetry();
 
 const QUESTIONS = [
   "What temperature should I keep neon tetras at?",
@@ -27,3 +31,5 @@ for (const question of QUESTIONS) {
   console.log(`\nQ: ${question}\nA: ${body.answer}\n   sources: ${body.sources.join(" | ")}`);
 }
 server.close();
+// Flush the OTel batch exporter; skipping this loses the last spans when the process exits.
+await shutdownTelemetry();
