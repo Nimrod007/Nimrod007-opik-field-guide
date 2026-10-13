@@ -1,0 +1,31 @@
+{
+  "name": "openai-ts-storybook-illustrator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Children's storybook page illustrator on the OpenAI SDK: briefs versioned in the Opik prompt library, generated PNGs attached to traces.",
+  "type": "module",
+  "scripts": {
+    "demo": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "openai": "^6.0.1",
+    "opik": "2.2.99",
+    "opik-openai": "2.2.99"
+  },
+  "overrides": {
+    "opik-openai": {
+      "opik": "$opik"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}
