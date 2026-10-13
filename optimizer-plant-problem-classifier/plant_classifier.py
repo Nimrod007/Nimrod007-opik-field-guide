@@ -12,11 +12,12 @@ MODEL = "gpt-4o-mini"
 PROJECT_NAME = "optimizer-plant-problem-classifier"
 DATA_PATH = pathlib.Path(__file__).parent / "data" / "problems.json"
 
-# A first-draft prompt: categories in loose prose, nothing about the answer format.
+# A first-draft prompt: causes in loose prose, and nothing about the exact label wording to use.
 SEED_SYSTEM = (
     "You help home gardeners figure out what is wrong with their plants. "
     "The cause is usually pests, a plant disease, too much water, too little water, "
-    "a lack of nutrients, or not the right amount of light. Say which one it is."
+    "a lack of nutrients, or not the right amount of light. "
+    "Reply with a short phrase naming the cause."
 )
 
 

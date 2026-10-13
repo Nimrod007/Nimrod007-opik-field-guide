@@ -6,8 +6,12 @@ requires-python = ">=3.12"
 dependencies = [
     "openai>=1.60",
     "opik==2.2.99",
+    "opik-optimizer==3.2.0",
     "python-dotenv>=1.0",
 ]
 
 [dependency-groups]
 dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
