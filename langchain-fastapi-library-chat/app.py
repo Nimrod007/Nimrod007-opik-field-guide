@@ -6,12 +6,14 @@ LangChain chain: load history + search the catalog -> prompt -> model -> parser.
 from pathlib import Path
 
 from dotenv import load_dotenv
+import opik
 from fastapi import FastAPI
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnableConfig, RunnableLambda
 from langchain_openai import ChatOpenAI
+from opik.integrations.langchain import OpikTracer
 from pydantic import BaseModel
 
 from catalog import format_books, search_catalog
@@ -36,6 +38,9 @@ Catalog excerpt for the latest message:
 HISTORY: dict[str, list[BaseMessage]] = {}  # session_id -> messages (the bot's memory)
 
 
+# A named tool span for retrieval: OpikTracer can drop plain retriever runs, but an
+# @opik.track(type="tool") function always shows up as a tool span with the matches as output.
+@opik.track(name="search-catalog", type="tool", project_name=PROJECT_NAME)
 def lookup_books(message: str) -> list[dict]:
     return search_catalog(message)
 
@@ -76,11 +81,14 @@ class ChatResponse(BaseModel):
     reply: str
 
 
-def run_turn(message: str, session_id: str, extra_callbacks: list | None = None) -> str:
+def run_turn(message: str, session_id: str) -> str:
     global _chain
     _chain = _chain or build_chain()
+    # thread_id = the widget's session id: every turn of a visitor's conversation becomes
+    # one trace in the same Opik thread (Threads tab). The tracer maps the chain to spans.
+    tracer = OpikTracer(project_name=PROJECT_NAME, thread_id=session_id)
     reply = _chain.invoke(
-        message, config={"configurable": {"session_id": session_id}, "callbacks": extra_callbacks or []}
+        message, config={"configurable": {"session_id": session_id}, "callbacks": [tracer]}
     )
     HISTORY[session_id] += [HumanMessage(message), AIMessage(reply)]
     return reply

@@ -3,6 +3,7 @@ import threading
 import time
 
 import httpx
+import opik
 import uvicorn
 
 PORT = 4170
@@ -37,6 +38,8 @@ def main() -> None:
     finally:
         server.should_exit = True
         time.sleep(0.5)
+        # Traces are sent from a background thread; flush so none are lost at exit.
+        opik.flush_tracker()
 
 
 if __name__ == "__main__":
