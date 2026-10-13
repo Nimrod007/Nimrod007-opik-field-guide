@@ -3,13 +3,22 @@
     "id": "d1",
     "title": "Support ticket 4471",
     "text": "Ticket 4471 from Marisol Vantongeren (marisol.v@fernhollow.example). She says the label printer at 18 Quillfeather Lane jams daily. Call her on (555) 014-2291 after 3pm.",
-    "pii": ["Marisol Vantongeren", "marisol.v@fernhollow.example", "18 Quillfeather Lane", "(555) 014-2291"]
+    "pii": [
+      "Marisol Vantongeren",
+      "marisol.v@fernhollow.example",
+      "18 Quillfeather Lane",
+      "(555) 014-2291"
+    ]
   },
   {
     "id": "d2",
     "title": "HR note",
     "text": "Reminder: Tobias Okonkwo-Reyes moved to the Lisbon office. His employee SSN on file is 000-12-3456 and payroll should use card 4111 1111 1111 1111 for the relocation advance.",
-    "pii": ["Tobias Okonkwo-Reyes", "000-12-3456", "4111 1111 1111 1111"]
+    "pii": [
+      "Tobias Okonkwo-Reyes",
+      "000-12-3456",
+      "4111 1111 1111 1111"
+    ]
   },
   {
     "id": "d3",
@@ -21,12 +30,32 @@
     "id": "d4",
     "title": "Customer email",
     "text": "Hi, it's Wendeline. I live above the bakery on Thistledown Row, number 7, and my daughter Odalys keeps getting your parcels. Reach me at wendeline.p@brightmoor.example or +44 20 7946 0123.",
-    "pii": ["Wendeline", "Thistledown Row, number 7", "Odalys", "wendeline.p@brightmoor.example", "+44 20 7946 0123"]
+    "pii": [
+      "Wendeline",
+      "Thistledown Row, number 7",
+      "Odalys",
+      "wendeline.p@brightmoor.example",
+      "+44 20 7946 0123"
+    ]
   },
   {
     "id": "d5",
     "title": "Incident report",
     "text": "On Tuesday the night manager, Casimir Dlugosz, found the freezer door open. He was born on 3 March 1987 and asked that the report not mention his home town of Gdynia. Log IP 203.0.113.42 flagged the door sensor.",
-    "pii": ["Casimir Dlugosz", "3 March 1987", "Gdynia", "203.0.113.42"]
+    "pii": [
+      "Casimir Dlugosz",
+      "3 March 1987",
+      "Gdynia",
+      "203.0.113.42"
+    ]
+  },
+  {
+    "id": "d6",
+    "title": "Forwarded note",
+    "text": "Forwarding this from Priyanka Nandakumar. You can write to her at priyanka dot nandakumar at lindenwick dot example, because the shared inbox bounces anything with an attachment.",
+    "pii": [
+      "Priyanka Nandakumar",
+      "priyanka dot nandakumar at lindenwick dot example"
+    ]
   }
 ]

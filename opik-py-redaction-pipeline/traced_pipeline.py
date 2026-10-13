@@ -33,6 +33,12 @@ def record(trace, name: str, type_: str, started: datetime, **fields):
 
 
 def process_document_traced(client: opik.Opik, openai_client, doc: dict) -> dict:
+    # OPIK_TRACK_DISABLE only switches off @track and the integrations; the low-level client
+    # keeps sending whatever you give it. Checking is_tracing_active() ourselves is what makes
+    # the env var (and opik.set_tracing_active(False)) work for hand-written traces.
+    if not opik.is_tracing_active():
+        return steps.process_document(openai_client, doc)
+
     text = doc["text"]
     started = now()
     # client.trace() opens the root of the tree: this row is what the Traces tab lists. The
@@ -93,5 +99,17 @@ def process_document_traced(client: opik.Opik, openai_client, doc: dict) -> dict
         tags=["redaction", "verified" if check["ok"] else "leak"],
         metadata={"model": steps.MODEL, "findings": len(merged)},
     )
-    return {"redacted": redacted, "findings": merged, "verify": check,
-            "score": steps.score_recall(doc.get("pii", []), redacted), "trace": trace}
+    score = steps.score_recall(doc.get("pii", []), redacted)
+
+    # Feedback scores attach numbers to the trace: they appear as columns in the Traces tab and
+    # can be filtered or sorted (e.g. "pii_recall < 1"). The reason shows in the score tooltip.
+    trace.log_feedback_score(
+        name="pii_recall", value=score["recall"],
+        reason=("all known PII removed" if not score["leaked"]
+                else f"still present: {', '.join(score['leaked'])}"),
+    )
+    trace.log_feedback_score(
+        name="verify_passed", value=1.0 if check["ok"] else 0.0,
+        reason="rescan found nothing" if check["ok"] else f"leaks: {', '.join(check['leaks'])}",
+    )
+    return {"redacted": redacted, "findings": merged, "verify": check, "score": score}
