@@ -15,6 +15,7 @@ import dotenv
 
 dotenv.load_dotenv(pathlib.Path(__file__).parents[1] / ".env")
 
+import opik
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -22,7 +23,7 @@ from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from opik.integrations.langchain import OpikTracer
 
-from handbook import TOP_K, format_context, load_sections
+from handbook import TOP_K, format_context, load_sections, section_label
 
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 CHAT_MODEL = "llama3.2:1b"
@@ -44,16 +45,28 @@ PROMPT = ChatPromptTemplate.from_messages([
 ])
 
 
-def build_retriever():
-    store = InMemoryVectorStore.from_texts(
+def build_store() -> InMemoryVectorStore:
+    return InMemoryVectorStore.from_texts(
         load_sections(), OllamaEmbeddings(model=EMBED_MODEL, base_url=OLLAMA_URL)
     )
-    return store.as_retriever(search_kwargs={"k": TOP_K})
 
 
-def build_chain(retriever):
+def build_chain(store: InMemoryVectorStore):
+    # OpikTracer does not record the retriever's own run (it showed up only as a
+    # plain function span with a concatenated string), so retrieval is a named
+    # @opik.track span of type "tool". It nests under the chain's trace and shows
+    # each fetched section with its similarity score.
+    @opik.track(name="retrieve_sections", type="tool")
+    def retrieve_sections(question: str) -> list[dict]:
+        hits = store.similarity_search_with_score(question, k=TOP_K)
+        return [
+            {"section": section_label(doc.page_content),
+             "score": round(score, 3), "text": doc.page_content}
+            for doc, score in hits
+        ]
+
     def search_handbook(question: str) -> str:
-        return format_context([d.page_content for d in retriever.invoke(question)])
+        return format_context([hit["text"] for hit in retrieve_sections(question)])
 
     llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_URL, temperature=0, num_predict=200)
     chain = (
@@ -64,7 +77,7 @@ def build_chain(retriever):
 
 
 def main() -> None:
-    chain = build_chain(build_retriever())
+    chain = build_chain(build_store())
     # OpikTracer is a LangChain callback: each chain.invoke becomes one trace
     # named after the run (ask_the_handbook), with prompt and ChatOllama as child spans.
     tracer = OpikTracer(project_name=PROJECT_NAME, tags=["ollama", "local-rag"])

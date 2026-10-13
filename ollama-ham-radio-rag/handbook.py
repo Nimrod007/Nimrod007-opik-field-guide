@@ -24,3 +24,9 @@ def load_sections(docs_dir: pathlib.Path = DOCS_DIR) -> list[str]:
 def format_context(sections: list[str]) -> str:
     """Join retrieved sections into the context block of the prompt."""
     return "\n\n---\n\n".join(sections)
+
+
+def section_label(chunk: str) -> str:
+    """'Antenna Basics > Standing wave ratio' from a chunk made by load_sections."""
+    title, heading, *_ = chunk.split("\n\n", 2)
+    return f"{title} > {heading.removeprefix('## ').splitlines()[0]}"
