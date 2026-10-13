@@ -1,0 +1,26 @@
+{
+  "name": "voltagent-bike-repair-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A VoltAgent bike-shop repair intake assistant, traced to Opik over OpenTelemetry with token usage and cost on every llm span.",
+  "type": "module",
+  "engines": { "node": ">=20.19.0" },
+  "scripts": {
+    "demo": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@opentelemetry/exporter-trace-otlp-http": "0.205.0",
+    "@opentelemetry/sdk-trace-base": "2.0.0",
+    "@voltagent/core": "^2.11.0",
+    "dotenv": "^17.2.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
