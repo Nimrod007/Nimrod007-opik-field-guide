@@ -32,8 +32,7 @@ export interface Messages {
   create(params: Anthropic.MessageCreateParamsNonStreaming): Promise<Anthropic.Message>;
 }
 
-// ANTHROPIC_BASE_URL may point at a dev proxy; this example talks to the real API.
-export const anthropic = new Anthropic({ baseURL: "https://api.anthropic.com" });
+export const anthropic = new Anthropic();
 
 export function extractText(message: Anthropic.Message): string {
   return message.content

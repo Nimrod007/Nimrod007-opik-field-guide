@@ -77,9 +77,12 @@ instead: `track({ type: "llm" }, fn)`.
 **2. The root span is labelled `llm` and has no tokens.** `track()` without a `type` defaults to `llm`, so your
 wrapper function looks like a model call. Set `type: "general"` on any function that is not itself the model call.
 
-**3. The `llm` span has no cost.** Cost is derived from provider, model and usage. Return them from `enrichSpan`:
-`{ model, provider: "anthropic", usage: { prompt_tokens, completion_tokens, total_tokens } }`. We map
-Anthropic's `input_tokens` / `output_tokens` to those names by hand.
+**3. Every judge call fails: `LLM scoring failed: Failed to generate provider response with model claude-haiku-4-5-20251001`,
+and all items show 0/3 runs.** Opik's judge goes through the Vercel AI SDK Anthropic provider, which also reads
+`ANTHROPIC_BASE_URL`. If that variable points at a proxy or gateway in your shell, the judge gets a 404 while your own
+`@anthropic-ai/sdk` calls (which you may have configured differently) still work. Unset it before the run:
+`delete process.env.ANTHROPIC_BASE_URL` in `src/env.ts`, or `env -u ANTHROPIC_BASE_URL npm run demo`. Failed scoring
+shows up as a failed item with the reason text, not as a crash.
 
 ## How it's put together
 
@@ -88,7 +91,7 @@ Anthropic's `input_tokens` / `output_tokens` to those names by hand.
 - `src/questions.ts`: questions, global and item assertions.
 - `src/suite.ts`: creates the test suite and calls `runTests`.
 - `src/main.ts`: one demo answer, then the suite, then a pass/fail summary and a flush.
-- `src/env.ts`: loads `.env`.
+- `src/env.ts`: loads `.env` and clears a stray `ANTHROPIC_BASE_URL` (gotcha 3).
 - `docs/manual.md`: the fictional manual.
 - `tests/qa.test.ts`: offline tests for quote extraction, prompt contents, and traced functions with tracking off.
 
