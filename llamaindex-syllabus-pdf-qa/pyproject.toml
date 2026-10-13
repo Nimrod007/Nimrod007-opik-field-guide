@@ -1,0 +1,32 @@
+[project]
+name = "llamaindex-syllabus-pdf-qa"
+version = "0.1.0"
+description = "Policy Q&A over course-syllabus PDFs with LlamaIndex, traced and tested with Opik"
+requires-python = ">=3.12"
+dependencies = [
+    "llama-index-core>=0.14.0",
+    "llama-index-llms-openai>=0.5.0",
+    "llama-index-embeddings-openai>=0.5.0",
+    # The llama-index meta-package no longer bundles file readers: PDF loading needs this one.
+    "llama-index-readers-file>=0.5.0",
+    "llama-index-callbacks-opik>=1.3.0",
+    "opik==2.2.99",
+    "python-dotenv>=1.0",
+    "reportlab>=4.0",
+]
+
+[project.scripts]
+syllabus-qa = "syllabus_qa.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["syllabus_qa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
