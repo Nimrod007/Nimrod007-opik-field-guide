@@ -30,7 +30,7 @@ class Email(BaseModel):
     id: str
     sent: dt.date
     text: str
-    assertions: list[str]
+    assertions: list[str] = Field(default_factory=list)
 
 
 def load_emails(path: Path = DATA_FILE) -> list[Email]:
