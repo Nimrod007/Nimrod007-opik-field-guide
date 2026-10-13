@@ -80,7 +80,11 @@ def main() -> None:
     chain = build_chain(build_store())
     # OpikTracer is a LangChain callback: each chain.invoke becomes one trace
     # named after the run (ask_the_handbook), with prompt and ChatOllama as child spans.
-    tracer = OpikTracer(project_name=PROJECT_NAME, tags=["ollama", "local-rag"])
+    # provider="ollama" fills the llm span's provider column, which Ollama runs
+    # otherwise leave empty; the model name goes in the tags for the same reason.
+    tracer = OpikTracer(
+        project_name=PROJECT_NAME, tags=["ollama", "local-rag", CHAT_MODEL], provider="ollama"
+    )
     for question in QUESTIONS:
         answer = chain.invoke(question, config={"callbacks": [tracer]})
         print(f"Q: {question}\nA: {answer}\n")

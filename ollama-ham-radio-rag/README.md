@@ -16,7 +16,7 @@ Tracing is usually sold alongside cloud models: you get token counts, cost, a pr
 
 ## See it in Opik
 
-Open the **ollama-ham-radio-rag** project and the Traces tab. One run gives four traces named `ask_the_handbook`, tagged `ollama` and `local-rag`, one per question. Each trace holds seven spans: the `RunnableParallel` step, `search_handbook`, `RunnablePassthrough`, the prompt template, `ChatOllama` (type `llm`), `StrOutputParser`, and a tool span called `retrieve_sections`.
+Open the **ollama-ham-radio-rag** project and the Traces tab. One run gives four traces named `ask_the_handbook`, tagged `ollama`, `local-rag` and `llama3.2:1b`, one per question. Each trace holds seven spans: the `RunnableParallel` step, `search_handbook`, `RunnablePassthrough`, the prompt template, `ChatOllama` (type `llm`, provider `ollama`), `StrOutputParser`, and a tool span called `retrieve_sections`.
 
 Open `retrieve_sections` and read its output: a list of the sections the vector store returned, each with its similarity score. For "What SWR is too high to keep transmitting?" it shows `Antenna Basics > Standing wave ratio` at 0.766 followed by `Band Plans... > 10-meter band layout` at 0.586, so you can see retrieval did its job. Then compare that to the `ChatOllama` span, which carries the exact prompt and the model's answer.
 
@@ -55,6 +55,14 @@ def retrieve_sections(question: str) -> list[dict]:
 Because `OpikTracer` keeps its spans on Opik's context stack, the decorated call nests inside the trace automatically.
 
 **The `ChatOllama` span has empty usage and cost.** The LangChain integration extracts usage only for providers it knows, and Ollama is not among them. Nothing is wrong with your setup; judge local runs by latency and answer quality.
+
+**The `ChatOllama` span has an empty provider and model.** The integration cannot infer either from an Ollama run: the span's provider and model columns stay empty, and only the metadata keeps `ls_model_name: llama3.2:1b`. Tell the tracer the provider and put the model in the tags, which are searchable in the Traces table:
+
+```python
+tracer = OpikTracer(project_name=PROJECT_NAME, tags=["ollama", "local-rag", CHAT_MODEL], provider="ollama")
+```
+
+The span's `model` field still stays empty after this; the model name lives in the tags and span metadata.
 
 ## How it's put together
 
