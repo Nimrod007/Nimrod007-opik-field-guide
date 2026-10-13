@@ -21,7 +21,7 @@
     "id": "d4",
     "title": "Customer email",
     "text": "Hi, it's Wendeline. I live above the bakery on Thistledown Row, number 7, and my daughter Odalys keeps getting your parcels. Reach me at wendeline.p@brightmoor.example or +44 20 7946 0123.",
-    "pii": ["Wendeline", "7 Thistledown Row", "Odalys", "wendeline.p@brightmoor.example", "+44 20 7946 0123"]
+    "pii": ["Wendeline", "Thistledown Row, number 7", "Odalys", "wendeline.p@brightmoor.example", "+44 20 7946 0123"]
   },
   {
     "id": "d5",

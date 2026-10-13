@@ -5,6 +5,7 @@ description = "A PII redaction pipeline traced by hand with the low-level Opik c
 requires-python = ">=3.12"
 dependencies = [
     "openai>=1.60",
+    "opik==2.2.99",
     "python-dotenv>=1.0",
 ]
 
